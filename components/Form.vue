@@ -2,73 +2,29 @@
   <v-container>
     <v-form ref="form">
       <!-- <v-text-field required outline flat label="Nombre completo">
-      </v-text-field> -->
+      </v-text-field>-->
 
-      <v-subheader class="pl-0"> 1. ¿Cuál es tu temperatura? (°C)</v-subheader>
-      <v-slider :thumb-size="20" thumb-label="always"></v-slider>
-
-      <v-subheader class="pl-0"
-        >2. ¿Cómo calificarías tu dolor de cabeza?
-      </v-subheader>
-      <v-slider :tick-labels="seasons" min="0" max="3" ticks="always">
-      </v-slider>
-      <br />
-      <v-subheader class="pl-0"
-        >3. ¿Cómo calificarías tu dolor de cuerpo?
-      </v-subheader>
-      <v-slider :tick-labels="seasons" min="0" max="3" ticks="always">
-        <template v-slot:thumb-label="props">
-          <v-icon dark>
-            {{ season(props.value) }}
-          </v-icon>
+      <v-subheader class="pl-0">1. ¿Cuál es tu temperatura? (°C)</v-subheader>
+      <v-slider :thumb-size="20" min="35" max="45" ticks="always" thumb-label="always">
+        <template v-slot:prepend>
+          <img width="30px" :src="'/symptoms/1.svg'" alt />
         </template>
       </v-slider>
+      <div v-for="(question, index) in questions" :key="index">
+        <v-subheader class="pl-0">{{ question }}</v-subheader>
+        <v-slider :tick-labels="scales" min="0" max="8" ticks="always">
+          <template v-slot:prepend>
+            <img width="30px" :src="'/symptoms/' + (index + 2) + '.svg'" alt />
+          </template>
 
-      <v-subheader class="pl-0"
-        >4. ¿Cómo calificarías tu fatiga o debilidad?</v-subheader
-      >
-      <v-slider v-model="value" step="10" ticks></v-slider>
-
-      <v-subheader class="pl-0"
-        >5. ¿Qué tan tapada sientes la nariz?</v-subheader
-      >
-
-      <v-slider v-model="value" step="10" ticks="always"></v-slider>
-
-      <v-subheader class="pl-0">6. ¿Qué tanto estornudas?</v-subheader>
-
-      <v-slider
-        v-model="value"
-        thumb-label="always"
-        :tick-labels="satisfactionEmojis"
-        step="10"
-        ticks="always"
-      ></v-slider>
-
-      <!--  -->
-      <v-subheader class="pl-0"
-        >7. ¿Qué tan irritada sientes la garganta?
-      </v-subheader>
-      <v-slider :tick-labels="seasons" min="0" max="3" ticks="always">
-      </v-slider>
-
-      <v-subheader class="pl-0">8. ¿Qué tanta tos tienes? </v-subheader>
-      <v-slider :tick-labels="seasons" min="0" max="3" ticks="always">
-      </v-slider>
-
-      <v-subheader class="pl-0"
-        >9. ¿Qué tanto se te dificulta respirar?
-      </v-subheader>
-      <v-slider :tick-labels="seasons" min="0" max="3" ticks="always">
-      </v-slider>
-
-      <v-subheader class="pl-0">10. ¿Qué tanto escurrimiento nasal tienes?</v-subheader>
-      <v-slider :tick-labels="seasons" min="0" max="3" ticks="always">
-      </v-slider>
-
-       <v-subheader class="pl-0">11. ¿Qué tanta diarrea presentas? </v-subheader>
-      <v-slider :tick-labels="seasons" min="0" max="3" ticks="always">
-      </v-slider>
+          <template v-slot:thumb-label="props">
+            <!-- <v-icon dark>
+            {{ season(props.value) }}
+              </v-icon> -->
+            <img width="30px" :src="'/feelings/' + season(props.value)" alt />
+          </template>
+        </v-slider>
+      </div>
     </v-form>
   </v-container>
 </template>
@@ -76,28 +32,42 @@
 <script>
 export default {
   data: () => ({
+    scales: [0, 1, 2, 3, 4, 5, 6, 7, 8],
     slider: 1,
     value: 10,
-    satisfactionEmojis: [
-      "😭",
-      "😢",
-      "☹️",
-      "🙁",
-      "😐",
-      "🙂",
-      "😊",
-      "😁",
-      "😄",
-      "😍"
+    questions: [
+      '¿Cómo calificarías tu dolor de cabeza?',
+      '¿Cómo calificarías dolores en tu cuerpo?',
+      '¿Cómo calificarías tu fatiga o debilidad?',
+      '¿Qué tan tapada sientes la nariz?',
+      '¿Qué tanto estornudas?',
+      '¿Qué tan irritada sientes la garganta?',
+      '¿Qué tanta tos tienes?',
+      '¿Qué tanto se te dificulta respirar?',
+      '¿Qué tanto escurrimiento nasal tienes?',
+      '¿Qué tanta diarrea presentas?'
     ],
-    seasons: ["Poco", "Regular", "Mucho", "Demasiado"],
-    icons: ["mdi-snowflake", "mdi-leaf", "mdi-fire", "mdi-water"]
+    satisfactionEmojis: [
+      '😭',
+      '😢',
+      '☹️',
+      '🙁',
+      '😐',
+      '🙂',
+      '😊',
+      '😁',
+      '😄',
+      '😍'
+    ],
+    seasons: ['Poco', 'Regular', 'Mucho', 'Demasiado'],
+    icons: ['mdi-snowflake', 'mdi-leaf', 'mdi-fire', 'mdi-water'],
+    svg: [0, 1, 2, 3, 4, 5, 6, 7, 8]
   }),
 
   methods: {
-    season(val) {
-      return this.icons[val];
+    season (val) {
+      return this.svg[val] + '.svg'
     }
   }
-};
+}
 </script>
