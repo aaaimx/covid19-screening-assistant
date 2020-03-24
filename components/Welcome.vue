@@ -23,24 +23,38 @@
             <base-heading>Welcome!</base-heading>
             <base-text>
               Lorem ipsum dolor sit amet, consectetur ad ipiscin elit. Etiam
-              vulputate augue vel felis gra vida porta. Lorem ipsum dolor sit
-              amet, cons ectetur adipiscing elit.<br />
-              Lorem ipsum dolor sit amet, consectetur ad ipiscin elit. Etiam
-              vulputate augue vel felis gra vida porta. Lorem ipsum dolor sit
-              amet, cons ectetur adipiscing elit.
+              vulputate augue vel gra vida porta. Lorem ipsum dolor sit amet,
+              cons ectetur adipiscing elit.<br />
+              <b>Covid19 Screening Assistant </b>
+              dolor sit amet, consectetur ad ipiscin elit. Etiam vulputate augue
+              vel felis gra vida porta. Lorem ipsum dolor sit amet, cons ectetur
+              adipiscing elit.
             </base-text>
-            <v-btn @click.native="show = !show" class="mt-4">
-              Start quizz!
+            <v-btn
+              @click.native="show = !show"
+              depressed
+              rounded
+              outlined
+              class="mt-4"
+            >
+              Start Assistant
             </v-btn>
           </v-flex>
         </v-layout>
         <v-slide-y-transition>
           <v-layout align-center v-if="show" justify-center>
-              
             <v-flex xs10 md10 align-content-space-between layout wrap>
+              <base-heading>Covid19 Screening Assistant</base-heading>
+
               <Form />
 
-              <v-btn @click.native="show = !show" class="mt-4">
+              <v-btn
+                @click.native="show = !show"
+                depressed
+                rounded
+                outlined
+                class="mt-4"
+              >
                 Finish test
               </v-btn>
             </v-flex>
@@ -55,13 +69,13 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
-      show: true
-    };
+      show: false
+    }
   },
   components: {
-    Form: () => import("@/components/Form")
+    Form: () => import('@/components/Form')
   }
-};
+}
 </script>

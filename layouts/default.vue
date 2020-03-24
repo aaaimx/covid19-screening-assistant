@@ -1,9 +1,8 @@
 <template>
   <v-app>
     <core-toolbar />
-
     <core-view />
-
+    <v-content></v-content>
     <core-footer />
   </v-app>
 </template>
