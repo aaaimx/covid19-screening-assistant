@@ -1,69 +1,42 @@
 <template>
-  <v-footer :padless="padless">
-    <v-card flat tile width="100%" class="grey lighten-1 text-center">
-      <v-card-text>
-        <v-btn v-for="icon in icons" :key="icon" class="mx-4" icon>
-          <v-icon size="24px">{{ icon }}</v-icon>
+  <v-footer height="60" class="mt-2 justify-center text-xs-center d-block" :padless="padless">
+    <v-divider></v-divider>
+    <v-card flat tile width="100%" class="text-center">
+      <v-card-text class="text-center">
+        <v-btn v-for="icon in icons" :key="icon" class="mx-2 mb-2" icon>
+          <v-icon size="18px">{{ icon }}</v-icon>
         </v-btn>
-      </v-card-text>
-      <!-- https://web.facebook.com/aaaimx -->
-      <v-divider></v-divider>
-
-      <v-card-text class="white--text">
-        &copy; {{ new Date().getFullYear() }} — <strong>AAAI México</strong>
+        <div>
+          Copyright &copy; 2020
+          -
+          <b>Powered by</b>
+          <a href="https://web.facebook.com/aaaimx">@aaaimx</a>
+        </div>
       </v-card-text>
     </v-card>
   </v-footer>
 </template>
 
-<style scoped>
-.github-corner:hover .octo-arm {
-  animation: octocat-wave 560ms ease-in-out;
-}
-@keyframes octocat-wave {
-  0%,
-  100% {
-    transform: rotate(0);
-  }
-  20%,
-  60% {
-    transform: rotate(-25deg);
-  }
-  40%,
-  80% {
-    transform: rotate(10deg);
-  }
-}
-@media (max-width: 500px) {
-  .github-corner:hover .octo-arm {
-    animation: none;
-  }
-  .github-corner .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
-  }
-}
-</style>
-
 <script>
 export default {
   data: () => ({
-    icons: ['mdi-github', 'mdi-facebook', 'mdi-email', 'mdi-phone'],
-    items: ['default', 'absolute', 'fixed'],
+    icons: ["mdi-github", "mdi-facebook", "mdi-email", "mdi-phone"],
+    items: ["default", "absolute", "fixed"],
     padless: true,
-    variant: 'default'
+    variant: "default"
   }),
   computed: {
-    localAttrs () {
-      const attrs = {}
+    localAttrs() {
+      const attrs = {};
 
-      if (this.variant === 'default') {
-        attrs.absolute = false
-        attrs.fixed = false
+      if (this.variant === "default") {
+        attrs.absolute = false;
+        attrs.fixed = false;
       } else {
-        attrs[this.variant] = true
+        attrs[this.variant] = true;
       }
-      return attrs
+      return attrs;
     }
   }
-}
+};
 </script>

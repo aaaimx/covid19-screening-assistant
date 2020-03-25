@@ -6,7 +6,7 @@
     <a href="https://web.facebook.com/aaaimx/" target="_blank">
         <img src="https://img.shields.io/badge/follow%20us-%40aaaimx-blue">
     </a>
-    <a href="https://www.aaaimx.org/research" target="_blank">
+    <a href="https://www.paypal.me/aaaimx" target="_blank">
         <img src="https://img.shields.io/badge/donate-support%20us-green">
     </a>
 </p>

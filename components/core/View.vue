@@ -1,11 +1,11 @@
 <template>
-    <welcome />
+  <welcome />
 </template>
 
 <script>
 export default {
   components: {
-    Welcome: () => import('@/components/Welcome')
+    Welcome: () => import("@/components/Welcome")
   }
-}
+};
 </script>

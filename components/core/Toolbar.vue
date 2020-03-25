@@ -1,94 +1,148 @@
 <template>
-  <v-app-bar v-scroll="onScroll" :color="'transparent'" app flat>
-    <v-row justify="center">
-      <v-dialog v-model="dialog" scrollable width="500px">
-        <v-card outlined>
-          <v-card-title>
-            <v-list-item two-line>
-              <v-list-item-content>
-                <v-list-item-title class="headline"
-                  >Feeling cuantifiers</v-list-item-title
-                >
-                <v-list-item-subtitle
-                  >Lorem, ipsum dolor similique porro ducimus
-                  explicabo.</v-list-item-subtitle
-                >
-              </v-list-item-content>
-            </v-list-item>
-          </v-card-title>
+  <v-card flat tile>
+    <v-app-bar app fixed>
+      <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
-          <v-card-text>
-            <v-card class="mx-auto" flat outlined>
-              <v-list class="transparent">
-                <v-list-item v-for="item in forecast" :key="item.day">
-                  <v-list-item-title>{{ item.day }}</v-list-item-title>
+      <v-toolbar-title>Screening Assistant</v-toolbar-title>
 
-                  <v-list-item-icon>
-                    <!-- <v-icon>{{ item.icon }}</v-icon> -->
-                    <img width="30px" :src="'/feelings/' + item.icon" alt />
-                  </v-list-item-icon>
+      <v-spacer></v-spacer>
 
-                  <v-list-item-subtitle class="text-right">
-                    {{ item.temp }}
-                  </v-list-item-subtitle>
-                </v-list-item>
-              </v-list>
+      <v-row justify="center">
+        <v-dialog v-model="dialog" scrollable width="500px">
+          <v-card outlined>
+            <v-card-title>
+              <v-list-item two-line>
+                <v-list-item-content>
+                  <v-list-item-title class="headline"
+                    >Feeling cuantifiers</v-list-item-title
+                  >
+                </v-list-item-content>
+              </v-list-item>
+            </v-card-title>
 
-              <v-divider></v-divider>
-            </v-card>
-          </v-card-text>
-          <v-divider></v-divider>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="green darken-1" text @click="dialog = false"
-              >I agree</v-btn
-            >
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-row>
+            <v-card-text>
+              <v-card class="mx-auto" flat outlined>
+                <v-list class="transparent">
+                  <v-list-item v-for="item in forecast" :key="item.day">
+                    <v-list-item-title>{{ item.day }}</v-list-item-title>
 
-    <v-spacer />
+                    <v-list-item-icon>
+                      <!-- <v-icon>{{ item.icon }}</v-icon> -->
+                      <img width="30px" :src="'/covid19-screening-assistant/feelings/' + item.icon" alt />
+                    </v-list-item-icon>
 
-    <v-btn icon>
-      <v-icon @click="dialog = true">mdi-help</v-icon>
-    </v-btn>
+                    <v-list-item-subtitle class="text-right">{{
+                      item.temp
+                    }}</v-list-item-subtitle>
+                  </v-list-item>
+                </v-list>
 
-    <!-- <SocialMedia /> -->
-  </v-app-bar>
+                <v-divider></v-divider>
+              </v-card>
+            </v-card-text>
+            <v-divider></v-divider>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green darken-1" text @click="dialog = false"
+                >I agree</v-btn
+              >
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-row>
+
+      <v-spacer />
+
+      <v-btn icon>
+        <v-icon @click="dialog = true">mdi-help</v-icon>
+      </v-btn>
+    </v-app-bar>
+  </v-card>
 </template>
-
 <script>
+import LocaleChanger from '@/components/core/LocaleChanger'
+import ResizeText from 'vue-resize-text'
+
 export default {
+  name: 'Toolbar',
   components: {
-    SocialMedia: () => import('@/components/SocialMedia')
+    LocaleChanger
   },
-
-  data: () => ({
-    isTransparent: true,
-    dialogm1: '',
-    dialog: false,
-    labels: ['SU', 'MO', 'TU', 'WED', 'TH', 'FR', 'SA'],
-    time: 0,
-    forecast: [
-      {
-        day: 'Nada',
-        icon: '1.svg',
-        temp: '1'
-      },
-      {
-        day: 'Poco',
-        icon: '2.svg',
-        temp: '2'
-      },
-      { day: 'Moderado', icon: '3.svg', temp: '3' },
-      { day: 'Mucho', icon: '4.svg', temp: '4' }
-    ]
-  }),
-
+  directives: {
+    ResizeText
+  },
+  data () {
+    return {
+      sidebar: false,
+      isTransparent: true,
+      dialogm1: '',
+      dialog: false,
+      labels: ['SU', 'MO', 'TU', 'WED', 'TH', 'FR', 'SA'],
+      time: 0,
+      forecast: [
+        {
+          day: 'Nada',
+          icon: '1.svg',
+          temp: '1'
+        },
+        {
+          day: 'Poco',
+          icon: '2.svg',
+          temp: '2'
+        },
+        { day: 'Moderado', icon: '3.svg', temp: '3' },
+        { day: 'Mucho', icon: '4.svg', temp: '4' }
+      ]
+    }
+  },
+  computed: {
+    adminItems () {
+      return [
+        {
+          title: "this.$t('adminItems.CITIES')",
+          link: 'admin-cities',
+          icon: 'mdi-city',
+          class: 'btnAdminCities'
+        },
+        {
+          title: "this.$t('adminItems.USERS')",
+          link: 'admin-users',
+          icon: 'mdi-account-supervisor',
+          class: 'btnAdminUsers'
+        }
+      ]
+    },
+    menuItems () {
+      return [
+        {
+          title: "this.$t('menuItems.HOME')",
+          link: 'landing',
+          icon: 'mdi-home'
+        },
+        {
+          title: "this.$t('menuItems.ABOUT')",
+          link: 'about',
+          icon: 'mdi-help-circle-outline',
+          class: 'btnAbout'
+        },
+        {
+          title: "this.$t('menuItems.LOGIN')",
+          link: 'login',
+          icon: 'mdi-lock',
+          class: 'btnLogin'
+        },
+        {
+          title: "this.$t('menuItems.SIGNUP')",
+          link: 'signup',
+          icon: 'mdi-plus-circle-outline',
+          class: 'btnLogin'
+        }
+      ]
+    }
+  },
   methods: {
-    onScroll () {
-      this.isTransparent = window.pageYOffset < 200
+    userLogout () {
+      this.$store.dispatch('userLogout')
     }
   }
 }

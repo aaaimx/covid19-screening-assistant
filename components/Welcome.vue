@@ -16,66 +16,60 @@
         :pa-5="$vuetify.breakpoint.smAndDown"
         wrap
       >
-        <base-bubble-1 style="transform: rotate(180deg) translateY(25%)" />
+        <!-- <base-bubble-1 style="transform: rotate(180deg) translateY(10%)" /> -->
 
-        <v-layout v-if="!show" justify-center>
-          <v-flex xs10 md8>
-            <base-heading>Welcome!</base-heading>
-            <base-text>
-              Lorem ipsum dolor sit amet, consectetur ad ipiscin elit. Etiam
-              vulputate augue vel gra vida porta. Lorem ipsum dolor sit amet,
-              cons ectetur adipiscing elit.<br />
-              <b>Covid19 Screening Assistant </b>
-              dolor sit amet, consectetur ad ipiscin elit. Etiam vulputate augue
-              vel felis gra vida porta. Lorem ipsum dolor sit amet, cons ectetur
-              adipiscing elit.
-            </base-text>
-            <v-btn
-              @click.native="show = !show"
-              depressed
-              rounded
-              outlined
-              class="mt-4"
-            >
-              Start Assistant
-            </v-btn>
-          </v-flex>
-        </v-layout>
         <v-slide-y-transition>
-          <v-layout align-center v-if="show" justify-center>
-            <v-flex xs10 md10 align-content-space-between layout wrap>
-              <base-heading>Covid19 Screening Assistant</base-heading>
-
-              <Form />
-
+          <v-layout align-center v-if="!show" mt-10 justify-center>
+            <v-flex xs10 md8>
+              <base-heading>Welcome!</base-heading>
+              <base-text>
+                Lorem ipsum dolor sit amet, consectetur ad ipiscin elit. Etiam
+                vulputate augue vel gra vida porta. Lorem ipsum dolor sit amet,
+                cons ectetur adipiscing elit.
+                <br />
+                <b>Covid19 Screening Assistant</b>
+                dolor sit amet, consectetur ad ipiscin elit. Etiam vulputate augue
+                vel felis gra vida porta. Lorem ipsum dolor sit amet, cons ectetur
+                adipiscing elit.
+              </base-text>
               <v-btn
                 @click.native="show = !show"
                 depressed
                 rounded
                 outlined
                 class="mt-4"
-              >
-                Finish test
-              </v-btn>
+              >Start Assistant</v-btn>
+
+              <base-bubble-1 style="transform: rotate(360deg)" />
+            </v-flex>
+          </v-layout>
+          <v-layout align-center v-if="show" mt-10 justify-center>
+            <v-flex xs10 md10 align-content-space-between layout wrap>
+              <base-heading>Symptoms</base-heading>
+              <Form />
+              <v-btn
+                @click.native="show = !show"
+                depressed
+                rounded
+                outlined
+                class="mt-4"
+              >Finish test</v-btn>
             </v-flex>
           </v-layout>
         </v-slide-y-transition>
-        <base-bubble-2
-          style="transform: rotate(180deg) translate(-200px, -15%)"
-        />
       </v-flex>
     </v-layout>
   </section>
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       show: false
-    }
+    };
   },
   components: {
-    Form: () => import('@/components/Form')
+    Form: () => import("@/components/Form")
   }
-}
+};
 </script>
