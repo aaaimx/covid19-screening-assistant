@@ -6,7 +6,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'AAAIMX | COVID-19 Screening Assistant',
+    title: 'COVID-19 | Asistente para diagnóstico',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,9 +14,58 @@ module.exports = {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content:
+          'https://www.aaaimx.org/covid19-screening-assistant/covid19-assistant.png'
+      },
+      {
+        hid: 'og:image:type',
+        property: 'og:image:type',
+        content: 'image/png'
+      },
+      {
+        hid: 'og:image:width',
+        property: 'og:image:width',
+        content: '1634'
+      },
+      {
+        hid: 'og:image:height',
+        property: 'og:image:height',
+        content: '891'
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'COVID-19 | Asistente para diagnóstico'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'Asistente para diagnóstico. Formulario de asistencia basado en datos de la Universidad de Kansas'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'shortcut icon',
+        href: '/static/tracker/favicon.ico',
+        type: 'image/x-icon'
+      },
+      {
+        rel: 'icon',
+        href: '/static/tracker/favicon.ico',
+        type: 'image/x-icon'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color

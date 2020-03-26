@@ -3,7 +3,7 @@
     <v-app-bar app fixed>
       <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
-      <v-toolbar-title>Screening Assistant</v-toolbar-title>
+      <v-toolbar-title>Coronavirus (Covid-19)</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -14,7 +14,7 @@
               <v-list-item two-line>
                 <v-list-item-content>
                   <v-list-item-title class="headline"
-                    >Feeling cuantifiers</v-list-item-title
+                    >Cuantificador</v-list-item-title
                   >
                 </v-list-item-content>
               </v-list-item>
@@ -28,7 +28,13 @@
 
                     <v-list-item-icon>
                       <!-- <v-icon>{{ item.icon }}</v-icon> -->
-                      <img width="30px" :src="'/covid19-screening-assistant/feelings/' + item.icon" alt />
+                      <img
+                        width="30px"
+                        :src="
+                          '/covid19-screening-assistant/feelings/' + item.icon
+                        "
+                        alt
+                      />
                     </v-list-item-icon>
 
                     <v-list-item-subtitle class="text-right">{{
@@ -44,7 +50,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="green darken-1" text @click="dialog = false"
-                >I agree</v-btn
+                >Cerrar</v-btn
               >
             </v-card-actions>
           </v-card>

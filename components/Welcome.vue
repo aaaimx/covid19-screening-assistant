@@ -38,14 +38,14 @@
                 rounded
                 outlined
                 class="mt-4"
-              >Start Assistant</v-btn>
+              >Iniciar asistente</v-btn>
 
               <base-bubble-1 style="transform: rotate(360deg)" />
             </v-flex>
           </v-layout>
           <v-layout align-center v-if="show" mt-10 justify-center>
             <v-flex xs10 md10 align-content-space-between layout wrap>
-              <base-heading>Symptoms</base-heading>
+              <base-heading>Síntomas</base-heading>
               <Form />
             </v-flex>
           </v-layout>

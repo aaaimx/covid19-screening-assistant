@@ -7,7 +7,6 @@
         <nuxt />
       </transition>
       <ProjectDescription />
-      <base-bubble-2 style="transform: rotate(180deg) translate(-200px, -15%)" />
     </v-content>
     <Footer />
   </v-app>
@@ -15,12 +14,11 @@
 <script>
 export default {
   components: {
-    Footer: () => import("@/components/core/Footer"),
-    Toolbar: () => import("@/components/core/Toolbar")
+    Footer: () => import('@/components/core/Footer'),
+    Toolbar: () => import('@/components/core/Toolbar')
   }
-};
+}
 </script>
-
 
 <style>
 .fade-enter-active,

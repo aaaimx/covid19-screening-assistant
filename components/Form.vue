@@ -4,7 +4,7 @@
     </v-text-field>-->
     <v-subheader class="pl-0">1. ¿Cuál es tu temperatura? (°C)</v-subheader>
     <v-slider
-      :tick-labels="['36°', '37°', '38°', '40°+']"
+      :tick-labels="['36°', '37.3°', '38.7°', '40°+']"
       min="1"
       max="4"
       v-model="temperature"
@@ -53,7 +53,7 @@
       </v-slider>
     </div>
     <v-btn @click.native="sendForm()" depressed rounded outlined class="mt-4"
-      >Diagnostic</v-btn
+      >Diagnosticar</v-btn
     >
     <v-row justify="center">
 
@@ -62,7 +62,7 @@
       max-width="290"
     >
       <v-card>
-        <v-card-title class="headline">Diagnostic</v-card-title>
+        <v-card-title class="headline">Diagnóstico</v-card-title>
 
         <v-card-text>
           Es probable que tengas <b>{{ diseases[diagnosis] }}</b>
@@ -108,8 +108,8 @@ const config = {
 const api = axios.create(config)
 export default {
   data: () => ({
-    scales: [36.66, 37.33, 38.44, 40],
-    diseases: ['', 'Alegria', 'Gripa', 'Resfriado', 'Coronavirus'],
+    scales: [36, 37.3, 38.7, 40],
+    diseases: ['', 'Alergia', 'Coronavirus', 'Gripa', 'Resfriado'],
     diagnosis: 2,
     dialog: false,
     temperature: 1,
