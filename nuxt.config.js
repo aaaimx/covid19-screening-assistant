@@ -38,6 +38,29 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [],
+  /**
+   * Axios configuration
+   */
+  // axios: {
+  //   // proxyHeaders: false
+  //   mode: 'cors',
+  //   withCrdentials: true,
+  //   credentials: 'same-origin',
+  //   baseURL:
+  //     process.env.NODE_ENV === 'development'
+  //       ? 'http://127.0.0.1:5000'
+  //       : 'https://covid19-assistant.herokuapp.com',
+  //   headers: {
+  //     delete: {},
+  //     get: {},
+  //     head: {},
+  //     post: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     put: {},
+  //     patch: {}
+  //   }
+  // },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -48,7 +71,8 @@ module.exports = {
       dark: true,
       themes: {
         dark: {
-          primary: colors.yellow.lighten3,
+          // primary: colors.yellow.lighten3,
+          primary: '#d9ad26',
           secondary: colors.shades.black,
           error: colors.orange.darken3
         }

@@ -47,13 +47,6 @@
             <v-flex xs10 md10 align-content-space-between layout wrap>
               <base-heading>Symptoms</base-heading>
               <Form />
-              <v-btn
-                @click.native="show = !show"
-                depressed
-                rounded
-                outlined
-                class="mt-4"
-              >Finish test</v-btn>
             </v-flex>
           </v-layout>
         </v-slide-y-transition>
@@ -65,7 +58,7 @@
 export default {
   data() {
     return {
-      show: false
+      show: true
     };
   },
   components: {
