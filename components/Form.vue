@@ -18,11 +18,12 @@
         <p class="pl-0 is-size-6 font-weight-bold">
           {{ question.text }}
         </p>
-        <v-slider v-if="question.tmp"
+        <v-slider
+          v-if="question.tmp"
           :tick-labels="['36°', '37.3°', '38.7°', '40°+']"
           min="1"
           max="4"
-          v-model="temperature"
+          v-model="question.value"
         >
           <template v-slot:prepend>
             <img width="30px" :src="'/covid-19-assistant/symptoms/1.svg'" alt />
@@ -87,66 +88,27 @@
 <style>
 div.v-slider__tick-label {
   font-size: 12px;
-},
+}
 .step-content {
   padding: 0rem;
 }
-
 </style>
 
 <script>
-import axios from 'axios'
-const config = {
-  mode: 'cors',
-  credentials: 'same-origin',
-  timeout: 20000,
-  baseURL:
-    process.env.NODE_ENV === 'development'
-      ? 'http://127.0.0.1:5000'
-      : 'https://covid19-assistant.herokuapp.com',
-  headers: {
-    post: { 'Content-Type': 'application/json' }
-  }
-}
-const api = axios.create(config)
+import { mapState } from 'vuex'
 export default {
-  props: ['start', 'end'],
+  props: ['start', 'end', 'questions'],
   data: () => ({
     scales: [36, 37.3, 38.7, 40],
     diseases: ['', 'Alergia', 'Coronavirus', 'Gripa', 'Resfriado'],
     diagnosis: 2,
     dialog: false,
-    temperature: 1,
-    questions: [
-      { text: '1. ¿Cuál es tu temperatura? (°C)', tmp: true, value: 1 },
-      { text: '2. ¿Cómo calificarías tu dolor de cabeza?', value: 1 },
-      { text: '3. ¿Cómo calificarías dolores en tu cuerpo?', value: 1 },
-      { text: '4. ¿Cómo calificarías tu fatiga o debilidad?', value: 1 },
-      { text: '5. ¿Qué tan tapada sientes la nariz?', value: 1 },
-      { text: '6. ¿Qué tanto estornudas?', value: 1 },
-      { text: '7. ¿Qué tan irritada sientes la garganta?', value: 1 },
-      { text: '8. ¿Qué tanta tos tienes?', value: 1 },
-      { text: '9. ¿Qué tanto se te dificulta respirar?', value: 1 },
-      { text: '10. ¿Qué tanto escurrimiento nasal tienes?', value: 1 },
-      { text: '11. ¿Qué tanta diarrea presentas?', value: 1 }
-    ],
     seasons: ['Nada', 'Poco', 'Moderado', 'Mucho'],
     svg: [0, 1, 2, 3, 4, 5, 6, 7, 8]
   }),
-  // created () {
-  //   this.sendForm()
-  // },
   methods: {
     season (val) {
       return this.svg[val] + '.svg'
-    },
-    async sendForm () {
-      const res = await api.post('/diagnosis', {
-        values: [this.temperature, ...this.questions.map(q => q.value)]
-      })
-      console.log(res.data)
-      this.diagnosis = res.data.diagnosis
-      this.dialog = true
     }
   }
 }

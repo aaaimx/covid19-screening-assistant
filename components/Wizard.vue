@@ -32,7 +32,7 @@
             </v-toolbar-items>
           </v-toolbar>
           <v-card-text>
-            <section class="hero is-bold is-small">
+            <section v-show="showResult" class="hero is-bold is-small">
               <!-- Hero head: will stick at the top -->
               <div class="hero-head">
                 <nav class="navbar">
@@ -63,38 +63,59 @@
               <div class="hero-body">
                 <div class="has-text-centered">
                   <b-message :type="covid ? 'is-danger' : 'is-info'">
-                    <h1 v-if="!covid" class="title is-3">
-                      Tus síntomas parecen estar más asociados con aquellos
-                      presentados en casos de (<b
-                        >ALERGIAS, GRIPA, RESFRIADO COMÚN</b
-                      >).
-                    </h1>
-                    <h1 v-else class="title is-3">
-                      Tus síntomas similares con aquellos
-                      presentados en algunos casos de <b>COVID-19 </b>. <br>
-                      No entres en pánico y continúa tomando todas las medidas de seguridad.
-
-                    </h1>
-
-                    <br />
-                    <h2 class="subtitle ">
-                      Sin embargo, te recomendamos revisar los síntomas de estas
-                      condiciones en <br />
-                      <a
-                        href="https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/"
-                        >https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/ </a
-                      >. <br />
-                      Si sospechas estar contagiado de <b>COVID-19</b>, acorde a
-                      las disposiciones oficiales, <br />
-                      te recomendamos <b>quedarte en casa </b>, revisar los
-                      síntomas en
+                    <template v-if="!covid">
+                      <h1 class="title is-3">
+                        Tus síntomas parecen estar más asociados con aquellos
+                        presentados en casos de (<b
+                          >ALERGIAS, GRIPA, RESFRIADO COMÚN</b
+                        >).
+                      </h1>
                       <br />
-                      <a href="https://coronavirus.gob.mx/"
-                        >https://coronavirus.gob.mx/
-                      </a>
-                      y comunicarte al teléfono <b>800 00 44 800 </b> <br />
-                      o con algún profesional de la salud vía telefónica.
-                    </h2>
+                      <h2 class="subtitle ">
+                        Sin embargo, te recomendamos revisar los síntomas de
+                        estas condiciones en <br />
+                        <a
+                          href="https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/"
+                          >https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/ </a
+                        >. <br />
+                        Si sospechas estar contagiado de <b>COVID-19</b>, acorde
+                        a las disposiciones oficiales, <br />
+                        te recomendamos <b>quedarte en casa </b>, revisar los
+                        síntomas en
+                        <br />
+                        <a href="https://coronavirus.gob.mx/"
+                          >https://coronavirus.gob.mx/
+                        </a>
+                        y comunicarte al teléfono <b>800 00 44 800 </b> <br />
+                        o con algún profesional de la salud vía telefónica.
+                      </h2>
+                    </template>
+                    <template v-else>
+                      <h1 class="title is-3">
+                        Tus síntomas similares con aquellos presentados en
+                        algunos casos de <b>COVID-19 </b>. <br />
+                        No entres en pánico y continúa tomando todas las medidas
+                        de seguridad.
+                      </h1>
+                      <br />
+                      <h2 class="subtitle ">
+                        Sin embargo, te recomendamos revisar una lista más
+                        completa de los síntomas asociados a esta condición en
+                        <br />
+                        <a
+                          href="https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/"
+                          >https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/ </a
+                        >. <br />
+                        Te recomendamos <b>quedarte en casa </b>, revisar los
+                        síntomas en
+                        <br />
+                        <a href="https://coronavirus.gob.mx/"
+                          >https://coronavirus.gob.mx/
+                        </a>
+                        y comunicarte al teléfono <b>800 00 44 800 </b> <br />
+                        o con algún profesional de la salud vía telefónica.
+                      </h2>
+                    </template>
                   </b-message>
 
                   <div class="experience">
@@ -199,7 +220,7 @@
               </div>
             </section>
 
-            <v-list three-line subheader>
+            <v-list v-show="!showResult" three-line subheader>
               <v-list-item>
                 <v-list-item-content>
                   <!-- <v-list-item-title>Content filtering</v-list-item-title>
@@ -273,21 +294,24 @@ li.has-text-weight-bold {
 }
 .hero-body {
   padding: 0rem;
-
 }
 </style>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   components: {
     Steps: () => import('@/components/Steps'),
     Form: () => import('@/components/Form')
   },
+  created () {},
+  computed: {
+    ...mapState(['showResult', 'covid'])
+  },
   data () {
     return {
       dialog: true,
       help: false,
-      covid: false,
       notifications: false,
       sound: true,
       widgets: false,
