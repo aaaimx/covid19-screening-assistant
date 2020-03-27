@@ -85,20 +85,7 @@ export default {
       dialog: false,
       labels: ['SU', 'MO', 'TU', 'WED', 'TH', 'FR', 'SA'],
       time: 0,
-      forecast: [
-        {
-          day: 'Nada',
-          icon: '1.svg',
-          temp: '1'
-        },
-        {
-          day: 'Poco',
-          icon: '2.svg',
-          temp: '2'
-        },
-        { day: 'Moderado', icon: '3.svg', temp: '3' },
-        { day: 'Mucho', icon: '4.svg', temp: '4' }
-      ]
+      
     }
   },
   computed: {
