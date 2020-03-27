@@ -6,7 +6,6 @@
         class="ma-2"
         large
         rounded
-        text
         outlined
         @click="dialog = true"
       >
@@ -24,7 +23,7 @@
             <v-btn icon dark @click="dialog = false">
               <v-icon>mdi-close</v-icon>
             </v-btn>
-            <v-toolbar-title>Assistant</v-toolbar-title>
+            <v-toolbar-title>Síntomas</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
               <v-btn icon>
@@ -34,7 +33,6 @@
           </v-toolbar>
           <v-card-text>
             <v-list three-line subheader>
-              <v-subheader>Síntomas</v-subheader>
               <v-list-item>
                 <v-list-item-content>
                   <!-- <v-list-item-title>Content filtering</v-list-item-title>
@@ -78,7 +76,7 @@
                     <img
                       width="30px"
                       :src="
-                        '/covid19-screening-assistant/feelings/' + item.icon
+                        '/covid-19-assistant/feelings/' + item.icon
                       "
                       alt
                     />
@@ -107,7 +105,7 @@ export default {
   components: { Form: () => import('@/components/Form') },
   data () {
     return {
-      dialog: false,
+      dialog: true,
       help: false,
       notifications: false,
       sound: true,

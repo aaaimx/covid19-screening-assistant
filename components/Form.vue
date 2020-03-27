@@ -7,15 +7,13 @@
       />
     </v-flex>
 
-    <v-flex
-      xs12
-      md8
-    >
+    <v-flex xs12 md8>
       <v-layout align-center justify-center>
         <v-flex xs12 md10>
-          <v-subheader class="pl-0"
-            >1. ¿Cuál es tu temperatura? (°C)</v-subheader
-          >
+          <p class="pl-0 subtitle font-weight-condensed">
+            1. ¿Cuál es tu temperatura? (°C)
+          </p>
+
           <v-slider
             :tick-labels="['36°', '37.3°', '38.7°', '40°+']"
             min="1"
@@ -25,15 +23,15 @@
             <template v-slot:prepend>
               <img
                 width="30px"
-                :src="'/covid19-screening-assistant/symptoms/1.svg'"
+                :src="'/covid-19-assistant/symptoms/1.svg'"
                 alt
               />
             </template>
           </v-slider>
           <div v-for="(question, index) in questions" :key="index">
-            <v-subheader class="pl-0">
-              {{ index + 2 }}. {{ question.text }}</v-subheader
-            >
+            <p class="pl-0 subtitle font-weight-condensed">
+              {{ index + 2 }}. {{ question.text }}
+            </p>
             <v-slider
               :tick-labels="seasons"
               v-model="question.value"
@@ -45,7 +43,7 @@
                 <img
                   width="30px"
                   :src="
-                    '/covid19-screening-assistant/symptoms/' +
+                    '/covid-19-assistant/symptoms/' +
                       (index + 2) +
                       '.svg'
                   "
@@ -60,7 +58,7 @@
                 <img
                   width="30px"
                   :src="
-                    '/covid19-screening-assistant/feelings/' +
+                    '/covid-19-assistant/feelings/' +
                       season(props.value)
                   "
                   alt
@@ -113,7 +111,7 @@ const config = {
   credentials: 'same-origin',
   timeout: 20000,
   baseURL:
-    process.env.NODE_ENV !== 'development'
+    process.env.NODE_ENV === 'development'
       ? 'http://127.0.0.1:5000'
       : 'https://covid19-assistant.herokuapp.com',
   headers: {

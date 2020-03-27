@@ -48,7 +48,7 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <base-heading class="font-weight-bold"
-          >COVID-19 Screening Assistant</base-heading
+          >COVID-19 | Asistente de diagnóstico</base-heading
         >
         <h2 class="subtitle">
           El sitio fue creado con la intención de asistir a las personas a tener

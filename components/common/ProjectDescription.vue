@@ -19,29 +19,37 @@
           </p>
           <p>
             Este proyecto está enlazado a una API hecha por el
-            <b>Capitulo Estudiantil de Inteligencia Artificial</b>, <br />
-            empleando <em>Lógica Difusa </em> para el diagnóstico.
-
+            <a href="https://www.aaaimx.org" target="_blank"
+              >Capitulo Estudiantil de Inteligencia Artificial</a
+            >, <br />
+            del <b>Departamento de Sistemas y Computación </b> del
+            <b
+              >Tecnológico Nacional de México/Instituto Tecnológico de Mérida
+            </b>
             <br />
-            <br /><strong>DOCUMENTACIÓN: </strong>
-            <a href="https://github.com/aaaimx/covid19-detection"
-              >https://github.com/aaaimx/covid19-detection</a
-            >
+            empleando <b>lógica difusa </b> para el diagnóstico.
+
+            <br /><br />
+
+            <a
+              href="https://github.com/aaaimx/covid19-screening-assistant"
+              ><img
+                src="https://img.shields.io/badge/contribute-covid19--screening--asisstant-yellow"
+                alt=""
+            /></a>
           </p>
 
-          <br />
           <p class="font-weight-bold">
             ¿Eres un profesional de la salud y consideras que puedes contribuir
-            a mejorar el sistema? <br>
-            ¿Has sido diagnosticado con alguna de estas
-            condiciones por un profesional de la salud y el resultado del
-            sistema no coincide? 
+            a mejorar el sistema? <br />
+            ¿Has sido diagnosticado con alguna de estas condiciones por un
+            profesional de la salud y el resultado del sistema no coincide?
           </p>
           <p>
-            Por favor envinos un correo a
-            <a href="mailto:covid19@aaaimx.org">covid19@aaaimx.org </a>
-            informándonos de los casos incorrectos o las sugerencias que tengas
-            para que podamos mejorar el sistema.
+            Por favor envíanos un correo a
+            <a href="mailto:research@aaaimx.org">research@aaaimx.org </a>
+            informándonos de los casos incorrectos <br />
+            o las sugerencias que tengas para que podamos mejorar el sistema.
           </p>
           <div class="mb-2">
             <h1 class="is-size-3">Comparte en redes sociales</h1>
