@@ -68,6 +68,17 @@ export default {
   components: {
     Form: () => import('@/components/Form')
   },
+  computed: {
+    ...mapState(['diagnosis'])
+  },
+  watch: {
+    diagnosis (val) {
+      this.activeStep = 0
+      this.questions.forEach(element => {
+        element.value = 1
+      })
+    }
+  },
   data () {
     return {
       activeStep: 0,

@@ -133,7 +133,7 @@ module.exports = {
     }
   },
   router: {
-    base: '/covid-19-assistant/'
+    base: '/covid19-screening-assistant/'
     // base:
     //   process.env.NODE_ENV === 'development'
     //     ? ''

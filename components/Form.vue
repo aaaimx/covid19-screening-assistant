@@ -26,7 +26,11 @@
           v-model="question.value"
         >
           <template v-slot:prepend>
-            <img width="30px" :src="'/covid-19-assistant/symptoms/1.svg'" alt />
+            <img
+              width="30px"
+              :src="$store.state.base + '/symptoms/1.svg'"
+              alt
+            />
           </template>
         </v-slider>
 
@@ -41,7 +45,7 @@
           <template v-slot:prepend>
             <img
               width="30px"
-              :src="'/covid-19-assistant/symptoms/' + (index + 2) + '.svg'"
+              :src="$store.state.base + '/symptoms/' + (index + 2) + '.svg'"
               alt
             />
           </template>
@@ -52,7 +56,7 @@
           </v-icon>-->
             <img
               width="30px"
-              :src="'/covid-19-assistant/feelings/' + season(props.value)"
+              :src="$store.state.base + '/feelings/' + season(props.value)"
               alt
             />
           </template>

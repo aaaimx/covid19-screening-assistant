@@ -20,7 +20,7 @@
       >
         <v-card tile>
           <v-toolbar flat dark color="primary">
-            <v-btn icon dark @click="dialog = false">
+            <v-btn icon dark @click="dialog = false, $store.commit('RESET_ASSISTANT')">
               <v-icon>mdi-close</v-icon>
             </v-btn>
             <v-toolbar-title>Asistente</v-toolbar-title>
@@ -264,7 +264,7 @@
                     <!-- <v-icon>{{ item.icon }}</v-icon> -->
                     <img
                       width="30px"
-                      :src="'/covid-19-assistant/feelings/' + item.icon"
+                      :src="$store.state.base + '/feelings/' + item.icon"
                       alt
                     />
                   </v-list-item-icon>
@@ -310,7 +310,7 @@ export default {
   },
   data () {
     return {
-      dialog: true,
+      dialog: false,
       help: false,
       notifications: false,
       sound: true,

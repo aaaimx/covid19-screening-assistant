@@ -6,7 +6,7 @@ const config = {
   credentials: 'same-origin',
   timeout: 20000,
   baseURL:
-    process.env.NODE_ENV !== 'development'
+    process.env.NODE_ENV === 'development'
       ? 'http://127.0.0.1:5000'
       : 'https://covid19-assistant.herokuapp.com',
   headers: {
@@ -14,17 +14,23 @@ const config = {
   }
 }
 const api = axios.create(config)
+
 export const state = () => ({
-  diagnosis: 2,
+  diagnosis: 0,
   covid: false,
+  base: '/covid19-screening-assistant',
   showResult: false,
-  loading: false,
-  
+  loading: false
 })
 
 export const getters = {}
 
 export const mutations = {
+  RESET_ASSISTANT (state) {
+    state.covid = false
+    state.diagnosis = 0
+    state.showResult = false
+  },
   SET_DIAGNOSIS (state, diagnosis) {
     state.diagnosis = diagnosis
     if (diagnosis == 2) state.covid = true
