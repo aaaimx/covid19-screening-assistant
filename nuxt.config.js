@@ -65,10 +65,10 @@ module.exports = {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Open+Sans'
       },
-      {
-        rel: 'stylesheet',
-        href: 'https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css'
-      }
+      // {
+      //   rel: 'stylesheet',
+      //   href: 'https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css'
+      // }
     ]
   },
   /*
@@ -90,7 +90,7 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['nuxt-buefy'],
   /**
    * Axios configuration
    */

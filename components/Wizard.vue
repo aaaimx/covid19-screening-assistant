@@ -23,7 +23,7 @@
             <v-btn icon dark @click="dialog = false">
               <v-icon>mdi-close</v-icon>
             </v-btn>
-            <v-toolbar-title>Síntomas</v-toolbar-title>
+            <v-toolbar-title>Asistente</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
               <v-btn icon>
@@ -32,6 +32,173 @@
             </v-toolbar-items>
           </v-toolbar>
           <v-card-text>
+            <section class="hero is-bold is-small">
+              <!-- Hero head: will stick at the top -->
+              <div class="hero-head">
+                <nav class="navbar">
+                  <div class="container">
+                    <div class="navbar-brand">
+                      <a v-if="!covid" class="button is-info">
+                        <span class="icon">
+                          <i class="mdi mdi-thumb-up"></i>
+                        </span>
+                        <span class="font-weight-bold"
+                          >BAJA PROBABILIDAD DE RIESGO
+                        </span>
+                      </a>
+                      <a v-else class="button is-danger">
+                        <span class="icon">
+                          <i class="mdi mdi-information"></i>
+                        </span>
+                        <span class="font-weight-bold"
+                          >RIESGO DE EXPOSICIÓN
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+
+              <!-- Hero content: will be in the middle -->
+              <div class="hero-body">
+                <div class="has-text-centered">
+                  <b-message :type="covid ? 'is-danger' : 'is-info'">
+                    <h1 v-if="!covid" class="title is-3">
+                      Tus síntomas parecen estar más asociados con aquellos
+                      presentados en casos de (<b
+                        >ALERGIAS, GRIPA, RESFRIADO COMÚN</b
+                      >).
+                    </h1>
+                    <h1 v-else class="title is-3">
+                      Tus síntomas similares con aquellos
+                      presentados en algunos casos de <b>COVID-19 </b>. <br>
+                      No entres en pánico y continúa tomando todas las medidas de seguridad.
+
+                    </h1>
+
+                    <br />
+                    <h2 class="subtitle ">
+                      Sin embargo, te recomendamos revisar los síntomas de estas
+                      condiciones en <br />
+                      <a
+                        href="https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/"
+                        >https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/ </a
+                      >. <br />
+                      Si sospechas estar contagiado de <b>COVID-19</b>, acorde a
+                      las disposiciones oficiales, <br />
+                      te recomendamos <b>quedarte en casa </b>, revisar los
+                      síntomas en
+                      <br />
+                      <a href="https://coronavirus.gob.mx/"
+                        >https://coronavirus.gob.mx/
+                      </a>
+                      y comunicarte al teléfono <b>800 00 44 800 </b> <br />
+                      o con algún profesional de la salud vía telefónica.
+                    </h2>
+                  </b-message>
+
+                  <div class="experience">
+                    <div
+                      class="title is-size-5 has-text-info has-text-weight-bold"
+                    >
+                      Independientemente del diagnóstico, si:
+                    </div>
+                    <div class="item">
+                      <div class="is-size-5">
+                        La frecuencia de tu respiración es mayor a
+
+                        <b>30 respiraciones por minuto</b>
+                      </div>
+                      <br />
+                      <div class="is-size-5 has-text-weight-bold">O</div>
+                      <br />
+                    </div>
+                    <div class="item">
+                      <div class="is-size-5">
+                        presentas dificultad para
+                        <b>respirar, comer o mantenerte despierto,</b>
+                      </div>
+                      <br />
+                      <div class="is-size-5 has-text-weight-bold">Y/O</div>
+                      <br />
+                    </div>
+                    <div class="item">
+                      <div class="is-size-5">
+                        presentas
+                        <b> llenado capilar de más de 5 segundos</b> <br />
+                        <b>Y/O</b> tienes dos o más de los siguientes:
+                      </div>
+                      <br />
+                      <ul style="list-style:disc;">
+                        <li class="has-text-weight-bold">
+                          — más de 65 años o menos de 5 años
+                        </li>
+                        <li class="has-text-weight-bold">
+                          — fiebre mayor a 38°C
+                        </li>
+                        <li class="has-text-weight-bold">
+                          — tos seca persistente
+                        </li>
+                        <li class="has-text-weight-bold">
+                          — dificultad leve o moderada para respirar
+                        </li>
+                      </ul>
+                    </div>
+                    <br />
+                    <div class="item">
+                      <div class="is-size-5">
+                        es necesario que te comuniques al teléfono
+                        <b>800 00 44 800 </b> lo antes posible, <br />
+                        debido a que te encuentras en una situación más
+                        vulnerable.
+                      </div>
+                    </div>
+                    <br />
+                    <div class="item">
+                      <div class="is-size-5">
+                        Te recomendamos también reforzar medidas de prevención
+                        como:
+                      </div>
+                      <br />
+                      <ul style="list-style:disc;">
+                        <li class="has-text-weight-bold">
+                          — Lavar tus manos con agua y jabón
+                        </li>
+                        <li class="has-text-weight-bold">
+                          — Toser o estornudar en un pañuelo desechable o con el
+                          ángulo interno del codo
+                        </li>
+                        <li class="has-text-weight-bold">
+                          — Usar gel antibacterial con alcohol al 70%
+                        </li>
+                        <li class="has-text-weight-bold">
+                          — Evitar tocarte la boca, nariz y los ojos
+                        </li>
+                        <li class="has-text-weight-bold">
+                          — Limpiar las superficies con jabón y cloro
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hero footer: will stick at the bottom -->
+              <div class="content">
+                <h3 id="title is-size-5">
+                  Sigue la información publicada por la Secretaría de Salud en:
+                </h3>
+                <ul>
+                  <li><strong>Twitter:</strong> @SSalud_mx</li>
+                  <li>
+                    <strong>Facebook:</strong> facebook.com/SecretariadeSaludMX
+                  </li>
+                  <li><strong>Instagram:</strong> ssalud_mx</li>
+                  <li><strong>Youtube:</strong> Secretaría de Salud México</li>
+                </ul>
+              </div>
+            </section>
+
             <v-list three-line subheader>
               <v-list-item>
                 <v-list-item-content>
@@ -40,7 +207,8 @@
                     >Set the content filtering level to restrict apps that can
                     be downloaded</v-list-item-subtitle
                   >-->
-                  <Form />
+                  <!-- <Form /> -->
+                  <Steps />
                 </v-list-item-content>
               </v-list-item>
               <!-- <v-list-item>
@@ -75,9 +243,7 @@
                     <!-- <v-icon>{{ item.icon }}</v-icon> -->
                     <img
                       width="30px"
-                      :src="
-                        '/covid-19-assistant/feelings/' + item.icon
-                      "
+                      :src="'/covid-19-assistant/feelings/' + item.icon"
                       alt
                     />
                   </v-list-item-icon>
@@ -100,13 +266,28 @@
     </v-row>
   </div>
 </template>
+
+<style scoped>
+li.has-text-weight-bold {
+  list-style: none;
+}
+.hero-body {
+  padding: 0rem;
+
+}
+</style>
+
 <script>
 export default {
-  components: { Form: () => import('@/components/Form') },
+  components: {
+    Steps: () => import('@/components/Steps'),
+    Form: () => import('@/components/Form')
+  },
   data () {
     return {
       dialog: true,
       help: false,
+      covid: false,
       notifications: false,
       sound: true,
       widgets: false,
