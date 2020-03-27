@@ -61,9 +61,12 @@ module.exports = {
         type: 'image/x-icon'
       },
       {
-        rel: 'icon',
-        href: '/static/tracker/favicon.ico',
-        type: 'image/x-icon'
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Open+Sans'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css'
       }
     ]
   },
@@ -117,9 +120,9 @@ module.exports = {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
-        dark: {
+        light: {
           // primary: colors.yellow.lighten3,
           primary: '#d9ad26',
           secondary: colors.shades.black,

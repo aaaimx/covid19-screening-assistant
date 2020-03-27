@@ -1,68 +1,81 @@
 <template>
-  <section id="welcome" class="hide-overflow">
-    <v-layout>
-      <v-flex hidden-sm-and-down md4>
-        <v-img
-          src="https://wholelifestylenutrition.com/wp-content/uploads/Flu-2.jpg"
-          height="100vh"
-        />
-      </v-flex>
+  <section class="hero is-warning is-small is-bold">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+              <img
+                src="https://www.aaaimx.org/img/other/aaaimx-ist.png"
+                alt="Logo"
+              />
+            </a>
+            <!-- https://www.aaaimx.org/img/sprites/aaai-transpeps.png
 
-      <v-flex
-        xs12
-        md8
-        align-content-space-between
-        layout
-        :pa-5="$vuetify.breakpoint.smAndDown"
-        wrap
-      >
-        <!-- <base-bubble-1 style="transform: rotate(180deg) translateY(10%)" /> -->
-
-        <v-slide-y-transition>
-          <v-layout align-center v-if="!show" mt-10 justify-center>
-            <v-flex xs10 md8>
-              <base-heading>Welcome!</base-heading>
-              <base-text>
-                Lorem ipsum dolor sit amet, consectetur ad ipiscin elit. Etiam
-                vulputate augue vel gra vida porta. Lorem ipsum dolor sit amet,
-                cons ectetur adipiscing elit.
-                <br />
-                <b>Covid19 Screening Assistant</b>
-                dolor sit amet, consectetur ad ipiscin elit. Etiam vulputate augue
-                vel felis gra vida porta. Lorem ipsum dolor sit amet, cons ectetur
-                adipiscing elit.
-              </base-text>
-              <v-btn
-                @click.native="show = !show"
-                depressed
-                rounded
-                outlined
-                class="mt-4"
-              >Iniciar asistente</v-btn>
-
-              <base-bubble-1 style="transform: rotate(360deg)" />
-            </v-flex>
-          </v-layout>
-          <v-layout align-center v-if="show" mt-10 justify-center>
-            <v-flex xs10 md10 align-content-space-between layout wrap>
-              <base-heading>Síntomas</base-heading>
-              <Form />
-            </v-flex>
-          </v-layout>
-        </v-slide-y-transition>
-      </v-flex>
-    </v-layout>
+              <span class="navbar-burger burger" data-target="navbarMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span> -->
+          </div>
+          <!-- <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+              <div class="tabs is-right">
+                <ul>
+                  <li class="is-active"><a>Home</a></li>
+                  <li><a href="">Examples</a></li>
+                  <li><a href="">Features</a></li>
+                  <li><a href="">Team</a></li>
+                  <li><a href="">Help</a></li>
+                </ul>
+                <span class="navbar-item">
+                  <a
+                    class="button is-white is-outlined"
+                    href="https://github.com/BulmaTemplates/bulma-templates/blob/master/templates/hero.html"
+                  >
+                    <span class="icon">
+                      <i class="fa fa-github"></i>
+                    </span>
+                    <span title="Hello from the other side">View Source</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </nav>
+    </div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <base-heading class="font-weight-bold"
+          >COVID-19 Screening Assistant</base-heading
+        >
+        <h2 class="subtitle">
+          El sitio fue creado con la intención de asistir a las personas a tener
+          un diagnóstico rápido y sin salir de su hogar con base en los síntomas
+          presentados por distintas condiciones respiratorias. El objetivo es
+          evitar el pánico, saturación de hospitales y centros médicos, así como
+          el posible contagio al acudir a centros concurridos.
+        </h2>
+        <!-- <p class="has-text-centered">
+          <a class="button is-medium is-outlined is-rounded">
+            Iniciar asistente
+          </a>
+        </p> -->
+        <Wizard />
+      </div>
+    </div>
   </section>
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
-      show: true
-    };
+      show: false
+    }
   },
   components: {
-    Form: () => import("@/components/Form")
+    Wizard: () => import('@/components/Wizard')
   }
-};
+}
 </script>
