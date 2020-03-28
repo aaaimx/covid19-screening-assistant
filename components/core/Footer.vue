@@ -1,10 +1,8 @@
 <template>
   <v-footer
-    height="60"
     class="justify-center text-xs-center d-block"
     :padless="padless"
   >
-    <v-divider></v-divider>
     <v-card flat tile width="100%" class="text-center">
       <v-card-text class="text-center">
         <v-btn
@@ -17,8 +15,8 @@
           <v-icon size="20px">{{ link.icon }}</v-icon>
         </v-btn>
         <div>
-          Copyright &copy; 2020 - Sitio desarrollado por
-          <a href="https://www.aaaimx.org">@aaaimx</a>
+          Sitio desarrollado por
+          <a href="https://www.aaaimx.org">@aaaimx</a> - Copyright &copy; 2020
         </div>
       </v-card-text>
     </v-card>
@@ -30,15 +28,15 @@ export default {
   data: () => ({
     links: [
       {
-        href: "https://github.com/aaaimx",
+        href: 'https://github.com/aaaimx',
         icon: 'mdi-github'
       },
       {
-        href: "https://web.facebook.com/aaaimx/",
+        href: 'https://web.facebook.com/aaaimx/',
         icon: 'mdi-facebook'
       },
       {
-        href: "mailto:contact@aaaimx.org",
+        href: 'mailto:contact@aaaimx.org',
         icon: 'mdi-email'
       }
     ],

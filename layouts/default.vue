@@ -1,6 +1,6 @@
 <template>
-  <v-app dark>
-    <Toolbar />
+  <v-app>
+    <!-- <Toolbar /> -->
     <v-content>
       <!-- <loading /> -->
       <transition name="fade" mode="out-in">

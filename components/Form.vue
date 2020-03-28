@@ -1,160 +1,118 @@
 <template>
-  <v-container style="max-height: 500px" class="overflow-y-auto">
-    <!-- <v-text-field required outline flat label="Nombre completo">
-    </v-text-field>-->
-    <v-subheader class="pl-0">1. ¿Cuál es tu temperatura? (°C)</v-subheader>
-    <v-slider
-      :tick-labels="['36°', '37.3°', '38.7°', '40°+']"
-      min="1"
-      max="4"
-      v-model="temperature"
-    >
-      <template v-slot:prepend>
-        <img
-          width="30px"
-          :src="'/covid19-screening-assistant/symptoms/1.svg'"
-          alt
-        />
-      </template>
-    </v-slider>
-    <div v-for="(question, index) in questions" :key="index">
-      <v-subheader class="pl-0">
-        {{ index + 2 }}. {{ question.text }}</v-subheader
-      >
-      <v-slider
-        :tick-labels="seasons"
-        v-model="question.value"
-        min="1"
-        max="4"
-        ticks="always"
-      >
-        <template v-slot:prepend>
-          <img
-            width="30px"
-            :src="
-              '/covid19-screening-assistant/symptoms/' + (index + 2) + '.svg'
-            "
-            alt
-          />
-        </template>
+  <v-layout justify-center>
+    <!-- <v-flex hidden-sm-and-down md4>
+      <v-img
+        src="https://wholelifestylenutrition.com/wp-content/uploads/Flu-2.jpg"
+        height="100vh"
+      />
+    </v-flex> -->
 
-        <template v-slot:thumb-label="props">
-          <!-- <v-icon dark>
+    <!-- <v-flex xs12 md12>
+      <v-layout align-center justify-center> -->
+    <v-flex xs12 md8>
+      <div
+        class="mt-4"
+        v-for="(question, index) in questions.slice(start, end)"
+        :key="index"
+      >
+        <p class="pl-0 is-size-6 font-weight-bold">
+          {{ question.text }}
+        </p>
+        <v-slider
+          v-if="question.tmp"
+          :tick-labels="['36°', '37.3°', '38.7°', '40°+']"
+          min="1"
+          max="4"
+          v-model="question.value"
+        >
+          <!-- <template v-slot:prepend>
+            <img
+              width="30px"
+              :src="$store.state.base + '/symptoms/1.svg'"
+              alt
+            />
+          </template> -->
+        </v-slider>
+
+        <v-slider
+          v-else
+          :tick-labels="seasons"
+          v-model="question.value"
+          min="1"
+          max="4"
+          ticks="always"
+        >
+          <!-- <template v-slot:prepend>
+            <img
+              width="30px"
+              :src="$store.state.base + '/symptoms/' + (index + 2) + '.svg'"
+              alt
+            />
+          </template> -->
+
+          <template v-slot:thumb-label="props">
+            <!-- <v-icon dark>
             {{ season(props.value) }}
           </v-icon>-->
-          <img
-            width="30px"
-            :src="
-              '/covid19-screening-assistant/feelings/' + season(props.value)
-            "
-            alt
-          />
-        </template>
-      </v-slider>
-    </div>
-    <v-btn @click.native="sendForm()" depressed rounded outlined class="mt-4"
-      >Diagnosticar</v-btn
-    >
-    <v-row justify="center">
+            <img
+              width="30px"
+              :src="$store.state.base + '/feelings/' + season(props.value)"
+              alt
+            />
+          </template>
+        </v-slider>
+      </div>
+      <!-- <v-btn @click.native="sendForm()" depressed rounded outlined class="mt-4"
+        >Diagnosticar</v-btn
+      > -->
+      <v-row justify="center">
+        <v-dialog v-model="dialog" max-width="290">
+          <v-card>
+            <v-card-title class="headline">Diagnóstico</v-card-title>
 
-    <v-dialog
-      v-model="dialog"
-      max-width="290"
-    >
-      <v-card>
-        <v-card-title class="headline">Diagnóstico</v-card-title>
+            <v-card-text>
+              Es probable que tengas <b>{{ diseases[diagnosis] }}</b>
+            </v-card-text>
 
-        <v-card-text>
-          Es probable que tengas <b>{{ diseases[diagnosis] }}</b>
-        </v-card-text>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = 0"
-          >
-            OK
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-row>
-
-  </v-container>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green darken-1" text @click="dialog = 0">
+                OK
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-row>
+      <!-- </v-flex>
+      </v-layout> -->
+    </v-flex>
+  </v-layout>
 </template>
 
 <style>
 div.v-slider__tick-label {
-  font-size: 14px;
+  font-size: 12px;
+}
+.step-content {
+  padding: 0rem;
 }
 </style>
 
 <script>
-import axios from 'axios'
-const config = {
-  mode: 'cors',
-  credentials: 'same-origin',
-  timeout: 20000,
-  baseURL:
-    process.env.NODE_ENV === 'development'
-      ? 'http://127.0.0.1:5000'
-      : 'https://covid19-assistant.herokuapp.com',
-  headers: {
-    post: { 'Content-Type': 'application/json' }
-  }
-}
-const api = axios.create(config)
+import { mapState } from 'vuex'
 export default {
+  props: ['start', 'end', 'questions'],
   data: () => ({
     scales: [36, 37.3, 38.7, 40],
-    diseases: ['', 'Alergia', 'Coronavirus', 'Gripa', 'Resfriado'],
+    diseases: ['', 'ALERGIA', 'Coronavirus', 'GRIPA COMÚN', 'RESFRIADO'],
     diagnosis: 2,
     dialog: false,
-    temperature: 1,
-    questions: [
-      { text: '¿Cómo calificarías tu dolor de cabeza?', value: 1 },
-      { text: '¿Cómo calificarías dolores en tu cuerpo?', value: 1 },
-      { text: '¿Cómo calificarías tu fatiga o debilidad?', value: 1 },
-      { text: '¿Qué tan tapada sientes la nariz?', value: 1 },
-      { text: '¿Qué tanto estornudas?', value: 1 },
-      { text: '¿Qué tan irritada sientes la garganta?', value: 1 },
-      { text: '¿Qué tanta tos tienes?', value: 1 },
-      { text: '¿Qué tanto se te dificulta respirar?', value: 1 },
-      { text: '¿Qué tanto escurrimiento nasal tienes?', value: 1 },
-      { text: '¿Qué tanta diarrea presentas?', value: 1 }
-    ],
-    satisfactionEmojis: [
-      '😭',
-      '😢',
-      '☹️',
-      '🙁',
-      '😐',
-      '🙂',
-      '😊',
-      '😁',
-      '😄',
-      '😍'
-    ],
     seasons: ['Nada', 'Poco', 'Moderado', 'Mucho'],
-    icons: ['mdi-snowflake', 'mdi-leaf', 'mdi-fire', 'mdi-water'],
     svg: [0, 1, 2, 3, 4, 5, 6, 7, 8]
   }),
-  // created () {
-  //   this.sendForm()
-  // },
   methods: {
     season (val) {
       return this.svg[val] + '.svg'
-    },
-    async sendForm () {
-      const res = await api.post('/diagnosis', {
-        values: [this.temperature, ...this.questions.map(q => q.value)]
-      })
-      console.log(res.data)
-      this.diagnosis = res.data.diagnosis
-      this.dialog = true
     }
   }
 }

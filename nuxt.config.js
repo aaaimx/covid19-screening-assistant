@@ -6,20 +6,21 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'COVID-19 | Asistente para diagnóstico',
+    title: 'AAAIMX | COVID-19 Screening Assistant',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content:
+          'Cuestionario rápido de COVID-19. Los diagnósticos son basados en información provista por el Departamento de Salud y Medio Ambiente de Kansas'
       },
       {
         hid: 'og:image',
         property: 'og:image',
         content:
-          'https://www.aaaimx.org/covid19-screening-assistant/covid19-assistant.png'
+          'https://www.aaaimx.org/covid-19-assistant/covid19-assistant.png'
       },
       {
         hid: 'og:image:type',
@@ -44,13 +45,13 @@ module.exports = {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'COVID-19 | Asistente para diagnóstico'
+        content: 'AAAIMX | COVID-19 Screening Assistant'
       },
       {
         hid: 'og:description',
         property: 'og:description',
         content:
-          'Asistente para diagnóstico. Formulario de asistencia basado en datos de la Universidad de Kansas'
+          'Cuestionario rápido de COVID-19. Los diagnósticos son basados en información provista por el Departamento de Salud y Medio Ambiente de Kansas'
       }
     ],
     link: [
@@ -61,10 +62,13 @@ module.exports = {
         type: 'image/x-icon'
       },
       {
-        rel: 'icon',
-        href: '/static/tracker/favicon.ico',
-        type: 'image/x-icon'
-      }
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Open+Sans'
+      },
+      // {
+      //   rel: 'stylesheet',
+      //   href: 'https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css'
+      // }
     ]
   },
   /*
@@ -86,7 +90,7 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['nuxt-buefy'],
   /**
    * Axios configuration
    */
@@ -117,9 +121,9 @@ module.exports = {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
-        dark: {
+        light: {
           // primary: colors.yellow.lighten3,
           primary: '#d9ad26',
           secondary: colors.shades.black,
@@ -129,7 +133,7 @@ module.exports = {
     }
   },
   router: {
-    base: '/covid19-screening-assistant/'
+    base: '/covid19-assistant/'
     // base:
     //   process.env.NODE_ENV === 'development'
     //     ? ''

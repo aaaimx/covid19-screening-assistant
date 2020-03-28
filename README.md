@@ -14,7 +14,7 @@
 
 # Covid Assistant for Diagnosis
 
-Assistant form for diagnosis/detection of symptoms related to COVID-19 or discard them.
+Screening Assistant for diagnosis/detection of symptoms related to COVID-19.
 
 ## Getting Started
 
