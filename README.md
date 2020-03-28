@@ -12,9 +12,25 @@
 </p>
 <!-- __ -->
 
-# Covid Assistant for Diagnosis
+# COVID-19 Screening Assistant
+Assistant for screening of different respiratory medical conditions, particularly COVID-19, allergies, common cold and respiratory infections based on fuzzy logic. The results obtained from the use of this web application are not intended and should not under any circumstances replace the advice or diagnosis of a medical professional.
 
-Screening Assistant for diagnosis/detection of symptoms related to COVID-19.
+# References
+- **Gobierno de Mexico. (2020).** _COVID-19._ Retrieved March 27, 2020, from https://coronavirus.gob.mx/
+- **Jang, J.-S. R., Sun, C.-T., & Mizutani, E. (1997).** _Neuro-Fuzzy And Soft Computing: a computational approach to learning and machine intelligence. Upper Saddle River, NJ, USA: Prentice-Hall, Inc._
+- **Kansas Department of Health and Enviroment. (2020).** _COVID-19._ Retrieved March 27, 2020, from http://www.kdheks.gov/coronavirus/toolkit/Cold_vs._Flu_vs._Allergies_vs._Coronavirus.pdf
+- **National Insitutes of Health. (2014).** _¿Resfrío, gripe o alergia?_ Retrieved March 27, 2020, from https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/
+
+
+## Acknowledgments
+
+We want to acknowledge the support and guidance on the medical aspects of this project provided by **Dr. Enrique Peraza** and **Dr. Erika Orduña**.
+
+## Contributors ✒
+
+- **Raul Novelo** - _FrontEnd_ - [@RaulNovelo](https://github.com/RaulNovelo)
+- **Adolfo Álvarez** - _API BackEnd_ - [@alvarez98](https://github.com/alvarez98)
+- **Mauricio Orozco** - _Fuzzy Inference System_ - [@maorca421](https://github.com/maorca421)
 
 ## Getting Started
 
@@ -40,6 +56,7 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
+Open in browser http://localhost:3000/covid19-assistant/
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
@@ -48,9 +65,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 - [Nuxt.js](https://nuxtjs.org/) - The Progressive Vue.js Framework
 - [Vuetify.js](https://nuxtjs.org/) - Material Design Component Framework
-
-## Contribuitors ✒
-- **Raul Novelo** - _Initial work_ - [@RaulNovelo](https://github.com/RaulNovelo)
+- [Buefy](https://buefy.org/) - Lightweight UI components for Vue.js based on Bulma
 
 ## Contributing
 
@@ -61,12 +76,6 @@ Please read [CONTRIBUTING.md](https://www.aaaimx.org/cod) for details on our cod
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ---
-
-<!-- ## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc -->
 
 Made with ❤️ by [AAAIMX](https://github.com/aaaimx) 😊
 
