@@ -20,7 +20,11 @@
       >
         <v-card tile>
           <v-toolbar flat dark color="primary">
-            <v-btn icon dark @click="dialog = false, $store.commit('RESET_ASSISTANT')">
+            <v-btn
+              icon
+              dark
+              @click=";(dialog = false), $store.commit('RESET_ASSISTANT')"
+            >
               <v-icon>mdi-close</v-icon>
             </v-btn>
             <v-toolbar-title>Asistente</v-toolbar-title>
@@ -34,7 +38,7 @@
           <v-card-text>
             <section v-show="showResult" class="hero is-bold is-small">
               <!-- Hero head: will stick at the top -->
-              <div class="hero-head">
+              <!-- <div class="hero-head">
                 <nav class="navbar">
                   <div class="container">
                     <div class="navbar-brand">
@@ -57,7 +61,7 @@
                     </div>
                   </div>
                 </nav>
-              </div>
+              </div> -->
 
               <!-- Hero content: will be in the middle -->
               <div class="hero-body">
@@ -66,9 +70,8 @@
                     <template v-if="!covid">
                       <h1 class="title is-3">
                         Tus síntomas parecen estar más asociados con aquellos
-                        presentados en casos de (<b
-                          >ALERGIAS, GRIPA, RESFRIADO COMÚN</b
-                        >).
+                        presentados en casos de
+                        <b>{{ diseases[diagnosis] }} </b>.
                       </h1>
                       <br />
                       <h2 class="subtitle ">
@@ -200,23 +203,47 @@
                         </li>
                       </ul>
                     </div>
+                    <br />
+                    <!-- Hero footer: will stick at the bottom -->
+                    <div class="item">
+                      <div
+                        class="is-size-5"
+                      >
+                        Sigue la información publicada por la
+                        <b>Secretaría de Salud </b> en:
+                      </div>
+                      <br>
+                      <ul>
+                        <li>
+                          <strong>Twitter:</strong>
+                          <a href="https://twitter.com/SSalud_mx"
+                            >@SSalud_mx
+                          </a>
+                        </li>
+                        <li>
+                          <strong>Facebook:</strong>
+                          <a
+                            href="https://web.facebook.com/SecretariadeSaludMX/"
+                            >SecretariadeSaludMX</a
+                          >
+                        </li>
+                        <li>
+                          <strong>Instagram:</strong>
+                          <a href="https://www.instagram.com/ssalud_mx/"
+                            >ssalud_mx
+                          </a>
+                        </li>
+                        <li>
+                          <strong>Youtube:</strong>
+                          <a
+                            href="https://www.youtube.com/channel/UCu2Uc7YeJmE9mvGG9OK-zbQ"
+                            >Secretaría de Salud México
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <!-- Hero footer: will stick at the bottom -->
-              <div class="content">
-                <h3 id="title is-size-5">
-                  Sigue la información publicada por la Secretaría de Salud en:
-                </h3>
-                <ul>
-                  <li><strong>Twitter:</strong> @SSalud_mx</li>
-                  <li>
-                    <strong>Facebook:</strong> facebook.com/SecretariadeSaludMX
-                  </li>
-                  <li><strong>Instagram:</strong> ssalud_mx</li>
-                  <li><strong>Youtube:</strong> Secretaría de Salud México</li>
-                </ul>
               </div>
             </section>
 
@@ -306,7 +333,7 @@ export default {
   },
   created () {},
   computed: {
-    ...mapState(['showResult', 'covid'])
+    ...mapState(['showResult', 'diagnosis', 'covid'])
   },
   data () {
     return {
@@ -315,6 +342,7 @@ export default {
       notifications: false,
       sound: true,
       widgets: false,
+      diseases: ['', 'ALERGIA', 'Coronavirus', 'INFECCIÓN RESPIRATORIA', 'RESFRIADO'],
       forecast: [
         { day: 'Nada', icon: '1.svg', temp: '1' },
         { day: 'Poco', icon: '2.svg', temp: '2' },

@@ -18,7 +18,7 @@ const api = axios.create(config)
 export const state = () => ({
   diagnosis: 0,
   covid: false,
-  base: '/covid19-screening-assistant',
+  base: '/covid19-assistant',
   showResult: false,
   loading: false
 })

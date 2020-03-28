@@ -25,13 +25,13 @@
           max="4"
           v-model="question.value"
         >
-          <template v-slot:prepend>
+          <!-- <template v-slot:prepend>
             <img
               width="30px"
               :src="$store.state.base + '/symptoms/1.svg'"
               alt
             />
-          </template>
+          </template> -->
         </v-slider>
 
         <v-slider
@@ -42,13 +42,13 @@
           max="4"
           ticks="always"
         >
-          <template v-slot:prepend>
+          <!-- <template v-slot:prepend>
             <img
               width="30px"
               :src="$store.state.base + '/symptoms/' + (index + 2) + '.svg'"
               alt
             />
-          </template>
+          </template> -->
 
           <template v-slot:thumb-label="props">
             <!-- <v-icon dark>
@@ -104,7 +104,7 @@ export default {
   props: ['start', 'end', 'questions'],
   data: () => ({
     scales: [36, 37.3, 38.7, 40],
-    diseases: ['', 'Alergia', 'Coronavirus', 'Gripa', 'Resfriado'],
+    diseases: ['', 'ALERGIA', 'Coronavirus', 'GRIPA COMÚN', 'RESFRIADO'],
     diagnosis: 2,
     dialog: false,
     seasons: ['Nada', 'Poco', 'Moderado', 'Mucho'],
