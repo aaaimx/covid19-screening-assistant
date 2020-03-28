@@ -57,11 +57,7 @@
           evitar el pánico, saturación de hospitales y centros médicos, así como
           el posible contagio al acudir a centros concurridos.
         </h2>
-        <!-- <p class="has-text-centered">
-          <a class="button is-medium is-outlined is-rounded">
-            Iniciar asistente
-          </a>
-        </p> -->
+        <strong>PARA CONTINUAR, HAZ CLICK</strong>
         <Wizard />
       </div>
     </div>

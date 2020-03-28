@@ -4,12 +4,13 @@
       <v-btn
         color="secondary"
         class="ma-2"
+        flat
+        elevation="4"
         large
         rounded
-        outlined
         @click="dialog = true"
       >
-        Iniciar Asistente
+        INICIAR ASISTENTE
       </v-btn>
       <v-dialog
         v-model="dialog"
@@ -30,9 +31,9 @@
             <v-toolbar-title>Asistente</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
-              <v-btn icon>
+              <!-- <v-btn icon>
                 <v-icon @click="help = true">mdi-help</v-icon>
-              </v-btn>
+              </v-btn> -->
             </v-toolbar-items>
           </v-toolbar>
           <v-card-text>
