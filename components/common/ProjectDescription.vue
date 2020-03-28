@@ -57,7 +57,7 @@
           <a
             class="share-icon mx-4"
             target="_blank"
-            href="https://www.facebook.com/share.php?u=https://www.aaaimx.org/covid19-screening-assistant/"
+            href="https://www.facebook.com/share.php?u=https://www.aaaimx.org/covid19-assistant/"
           >
             <img
               width="50px"
@@ -67,7 +67,7 @@
           <a
             class="share-icon mx-4"
             target="_blank"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.aaaimx.org/covid19-screening-assistant/"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.aaaimx.org/covid19-assistant/"
           >
             <img
               width="50px"
@@ -77,7 +77,7 @@
           <a
             class="share-icon mx-4"
             target="_blank"
-            href="https://twitter.com/intent/tweet?text=&url=https://www.aaaimx.org/covid19-screening-assistant/"
+            href="https://twitter.com/intent/tweet?text=&url=https://www.aaaimx.org/covid19-assistant/"
           >
             <img
               width="50px"
