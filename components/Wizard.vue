@@ -95,7 +95,7 @@
                     </template>
                     <template v-else>
                       <h1 class="title is-3">
-                        Tus síntomas similares con aquellos presentados en
+                        Tus síntomas son similares con aquellos presentados en
                         algunos casos de <b>COVID-19</b>.
                       </h1>
                       <h2 class="subtitle mt-2">
