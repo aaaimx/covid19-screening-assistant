@@ -20,7 +20,7 @@ module.exports = {
         hid: 'og:image',
         property: 'og:image',
         content:
-          'https://www.aaaimx.org/covid-19-assistant/covid19-assistant.png'
+          'https://www.aaaimx.org/covid19-assistant/covid19-assistant.png'
       },
       {
         hid: 'og:image:type',
@@ -64,7 +64,7 @@ module.exports = {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Open+Sans'
-      },
+      }
       // {
       //   rel: 'stylesheet',
       //   href: 'https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css'
@@ -83,10 +83,19 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: ['~/plugins/vuetify.js', '~/plugins/base.js'],
+
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/vuetify'],
+  buildModules: ['@nuxtjs/vuetify', '@nuxtjs/google-analytics'],
+  googleAnalytics: {
+    id: 'UA-162008839-1',
+    debug: {
+      enabled: true,
+      sendHitTask: true
+    }
+  },
+
   /*
    ** Nuxt.js modules
    */
