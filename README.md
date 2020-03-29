@@ -30,7 +30,7 @@ We want to acknowledge the support and guidance on the medical aspects of this p
 
 - **Raul Novelo** - _FrontEnd_ - [@RaulNovelo](https://github.com/RaulNovelo)
 - **Adolfo Álvarez** - _API BackEnd_ - [@alvarez98](https://github.com/alvarez98)
-- **Mauricio Orozco** - _Fuzzy Inference System_ - [@maorca421](https://github.com/maorca421)
+- **Mauricio G. Orozco-del-Castillo** - _Fuzzy Inference System_ - [@maorca421](https://github.com/maorca421)
 
 ## Getting Started
 

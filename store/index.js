@@ -7,7 +7,7 @@ const config = {
   timeout: 20000,
   baseURL:
     process.env.NODE_ENV === 'development'
-      ? 'http://127.0.0.1:5000'
+      ? 'https://covid-19-mx.herokuapp.com'
       : 'https://covid19-assistant.herokuapp.com',
   headers: {
     post: { 'Content-Type': 'application/json' }
@@ -42,7 +42,7 @@ export const mutations = {
 }
 export const actions = {
   async getDiagnosis ({ commit, state }, values) {
-    const res = await api.post('/diagnosis', {
+    const res = await api.post('/diagnosis/', {
       values
     })
     console.log(res.data)

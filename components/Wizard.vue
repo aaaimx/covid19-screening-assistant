@@ -4,7 +4,6 @@
       <v-btn
         color="secondary"
         class="ma-2"
-        flat
         elevation="4"
         large
         rounded
@@ -28,7 +27,7 @@
             >
               <v-icon>mdi-close</v-icon>
             </v-btn>
-            <v-toolbar-title>Asistente</v-toolbar-title>
+            <v-toolbar-title class="font-weight-bold">Asistente para Diagnóstico</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
               <!-- <v-btn icon>
@@ -67,15 +66,15 @@
               <!-- Hero content: will be in the middle -->
               <div class="hero-body">
                 <div class="has-text-centered">
-                  <b-message :type="covid ? 'is-danger' : 'is-info'">
+                  <b-message type="is-info">
                     <template v-if="!covid">
                       <h1 class="title is-3">
                         Tus síntomas parecen estar más asociados con aquellos
                         presentados en casos de
-                        <b>{{ diseases[diagnosis] }} </b>.
+                        <b>{{ diseases[diagnosis] }}</b
+                        >.
                       </h1>
-                      <br />
-                      <h2 class="subtitle ">
+                      <h2 class="subtitle mt-2">
                         Sin embargo, te recomendamos revisar los síntomas de
                         estas condiciones en <br />
                         <a
@@ -84,7 +83,7 @@
                         >. <br />
                         Si sospechas estar contagiado de <b>COVID-19</b>, acorde
                         a las disposiciones oficiales, <br />
-                        te recomendamos <b>quedarte en casa </b>, revisar los
+                        te recomendamos <b>quedarte en casa</b>, revisar los
                         síntomas en
                         <br />
                         <a href="https://coronavirus.gob.mx/"
@@ -96,13 +95,10 @@
                     </template>
                     <template v-else>
                       <h1 class="title is-3">
-                        Tus síntomas similares con aquellos presentados en
-                        algunos casos de <b>COVID-19 </b>. <br />
-                        No entres en pánico y continúa tomando todas las medidas
-                        de seguridad.
+                        Tus síntomas son similares con aquellos presentados en
+                        algunos casos de <b>COVID-19</b>.
                       </h1>
-                      <br />
-                      <h2 class="subtitle ">
+                      <h2 class="subtitle mt-2">
                         Sin embargo, te recomendamos revisar una lista más
                         completa de los síntomas asociados a esta condición en
                         <br />
@@ -110,7 +106,7 @@
                           href="https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/"
                           >https://salud.nih.gov/articulo/resfrio-gripe-o-alergia/ </a
                         >. <br />
-                        Te recomendamos <b>quedarte en casa </b>, revisar los
+                        Te recomendamos <b>quedarte en casa</b>, revisar los
                         síntomas en
                         <br />
                         <a href="https://coronavirus.gob.mx/"
@@ -150,22 +146,30 @@
                     <div class="item">
                       <div class="is-size-5">
                         presentas
-                        <b> llenado capilar de más de 5 segundos</b> <br />
+                        <b>
+                          <a
+                            href="https://medlineplus.gov/spanish/ency/article/003394.htm
+"
+                            >llenado capilar</a
+                          >
+                          de más de 5 segundos</b
+                        >
+                        <br />
                         <b>Y/O</b> tienes dos o más de los siguientes:
                       </div>
                       <br />
                       <ul style="list-style:disc;">
                         <li class="has-text-weight-bold">
-                          — más de 65 años o menos de 5 años
+                          — Más de 65 años o menos de 5 años
                         </li>
                         <li class="has-text-weight-bold">
-                          — fiebre mayor a 38°C
+                          — Fiebre mayor a 38°C
                         </li>
                         <li class="has-text-weight-bold">
-                          — tos seca persistente
+                          — Tos seca persistente
                         </li>
                         <li class="has-text-weight-bold">
-                          — dificultad leve o moderada para respirar
+                          — Dificultad leve o moderada para respirar
                         </li>
                       </ul>
                     </div>
@@ -207,13 +211,11 @@
                     <br />
                     <!-- Hero footer: will stick at the bottom -->
                     <div class="item">
-                      <div
-                        class="is-size-5"
-                      >
+                      <div class="is-size-5">
                         Sigue la información publicada por la
                         <b>Secretaría de Salud </b> en:
                       </div>
-                      <br>
+                      <br />
                       <ul>
                         <li>
                           <strong>Twitter:</strong>
@@ -343,7 +345,13 @@ export default {
       notifications: false,
       sound: true,
       widgets: false,
-      diseases: ['', 'ALERGIA', 'Coronavirus', 'INFECCIÓN RESPIRATORIA', 'RESFRIADO'],
+      diseases: [
+        '',
+        'ALERGIA',
+        'Coronavirus',
+        'INFECCIÓN RESPIRATORIA',
+        'RESFRIADO'
+      ],
       forecast: [
         { day: 'Nada', icon: '1.svg', temp: '1' },
         { day: 'Poco', icon: '2.svg', temp: '2' },
