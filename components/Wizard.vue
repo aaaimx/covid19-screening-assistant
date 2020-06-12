@@ -349,7 +349,7 @@ export default {
         '',
         'ALERGIA',
         'Coronavirus',
-        'INFECCIÓN RESPIRATORIA',
+        'INFLUENZA',
         'RESFRIADO'
       ],
       forecast: [

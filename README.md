@@ -28,7 +28,7 @@ We want to acknowledge the support and guidance on the medical aspects of this p
 
 ## Contributors ✒
 
-- **Raul Novelo** - _FrontEnd_ - [@RaulNovelo](https://github.com/RaulNovelo)
+- **Raul Novelo** - _FrontEnd_ - [@rnovec](https://github.com/rnovec)
 - **Adolfo Álvarez** - _API BackEnd_ - [@alvarez98](https://github.com/alvarez98)
 - **Mauricio G. Orozco-del-Castillo** - _Fuzzy Inference System_ - [@maorca421](https://github.com/maorca421)
 
