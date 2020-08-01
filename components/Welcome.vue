@@ -4,7 +4,7 @@
       <nav class="navbar">
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item" href="#">
+            <a class="navbar-item" href="https://www.aaaimx.org">
               <img
                 src="https://www.aaaimx.org/img/other/aaaimx-ist.png"
                 alt="Logo"
